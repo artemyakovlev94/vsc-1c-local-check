@@ -11,6 +11,6 @@
   - `id` должен содержать только цифры
   - Значения `id` должны быть уникальны в пределах файла
 
-## Лицензия
+## Release Notes
 
-MIT
+Detailed release notes are available [here](https://github.com/artemyakovlev94/vsc-1c-local-check/releases).
