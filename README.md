@@ -1,4 +1,4 @@
-# VSC 1C Helper
+# VSC 1C Local check
 
 Расширение VSC 1C Helper для дополнительной проверки файлов 1С.
 
