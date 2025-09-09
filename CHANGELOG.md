@@ -1,0 +1,1 @@
+Detailed release notes are available [here](https://github.com/artemyakovlev94/vsc-1c-local-check/releases).

@@ -1,0 +1,46 @@
+{
+  "name": "vsc-1c-helper",
+  "displayName": "VSC 1C Helper",
+  "description": "",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Linters"
+  ],
+  "activationEvents": [
+    "onLanguage:bsl",
+    "onFileSystem:*",
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "bsl",
+        "aliases": [
+          "BSL"
+        ],
+        "extensions": [
+          ".bsl"
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha \"test/**/*.test.js\""
+  },
+  "devDependencies": {
+    "@types/node": "22.x",
+    "@types/vscode": "^1.103.0",
+    "chai": "^4.3.10",
+    "eslint": "^9.32.0",
+    "mocha": "^10.7.3"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.5.3"
+  },
+  "publisher": "ArtemYakovlev"
+}
