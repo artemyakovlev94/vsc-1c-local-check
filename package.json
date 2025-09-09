@@ -1,13 +1,15 @@
 {
-  "name": "vsc-1c-helper",
-  "displayName": "VSC 1C Helper",
+  "name": "vsc-1c-local-check",
+  "displayName": "VSC 1C Local check",
   "description": "",
   "version": "1.0.0",
   "engines": {
     "vscode": "^1.103.0"
   },
   "categories": [
-    "Linters"
+    "Programming Languages",
+    "Linters",
+    "Other"
   ],
   "activationEvents": [
     "onLanguage:bsl",
@@ -42,5 +44,15 @@
   "dependencies": {
     "fast-xml-parser": "^4.5.3"
   },
-  "publisher": "ArtemYakovlev"
+  "publisher": "ArtemYakovlev",
+  "author": {
+    "name": "Artem Yakovlev",
+    "url": "https://github.com/artemyakovlev94"
+  },
+  "homepage": "https://github.com/artemyakovlev94/vsc-1c-local-check",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artemyakovlev94/vsc-1c-local-check.git"
+  }
 }
