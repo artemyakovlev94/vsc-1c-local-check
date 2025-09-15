@@ -1,5 +1,3 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const { validateBslText, validateFormXmlText } = require('./lib/validators');
 
@@ -69,18 +67,20 @@ function activate(context) {
 		for (const d of simple) {
 			const range = new vscode.Range(document.positionAt(d.start), document.positionAt(d.end));
 			const diag = new vscode.Diagnostic(range, d.message, vscode.DiagnosticSeverity.Error);
-			// Attach related info to point to the first occurrence if available
+			diag.source = 'vsc-1c-local-check';
+			
 			if (typeof d.relatedStart === 'number' && typeof d.relatedEnd === 'number') {
 				const firstRange = new vscode.Range(document.positionAt(d.relatedStart), document.positionAt(d.relatedEnd));
 				const relatedLoc = new vscode.Location(document.uri, firstRange);
 				diag.relatedInformation = [
-					new vscode.DiagnosticRelatedInformation(relatedLoc, 'Первое вхождение этого id')
+					new vscode.DiagnosticRelatedInformation(relatedLoc, `Первое вхождение дублирующего значения "${d['attr']}" в блоке <${d['name']}>: ${d['value']}`)
 				];
-				// Also ensure the first occurrence itself is highlighted once
+				
 				const firstKey = `${d.relatedStart}:${d.relatedEnd}`;
 				if (!firstSeenAdded.has(firstKey)) {
 					firstSeenAdded.add(firstKey);
-					const firstDiag = new vscode.Diagnostic(firstRange, 'Первое вхождение дублирующего id', vscode.DiagnosticSeverity.Error);
+					const firstDiag = new vscode.Diagnostic(firstRange, `Первое вхождение дублирующего значения "${d['attr']}" в блоке <${d['name']}>: ${d['value']}`, vscode.DiagnosticSeverity.Error);
+					firstDiag.source = 'vsc-1c-local-check';
 					diagnostics.push(firstDiag);
 				}
 			}
@@ -114,7 +114,7 @@ function activate(context) {
 	context.subscriptions.push(vscode.window.onDidChangeActiveTextEditor(editor => {
 		if (editor) validateDocument(editor.document);
 	}));
-	// Clear diagnostics when a document is closed
+	
 	context.subscriptions.push(vscode.workspace.onDidCloseTextDocument(doc => {
 		bslDiagnostics.delete(doc.uri);
 		xmlDiagnostics.delete(doc.uri);

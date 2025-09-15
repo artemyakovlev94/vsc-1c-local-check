@@ -2,7 +2,7 @@
   "name": "vsc-1c-local-check",
   "displayName": "VSC 1C Local check",
   "description": "",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.103.0"
   },
@@ -42,7 +42,7 @@
     "mocha": "^10.7.3"
   },
   "dependencies": {
-    "fast-xml-parser": "^4.5.3"
+    "sax": "^1.4.1"
   },
   "publisher": "ArtemYakovlev",
   "author": {
