@@ -2,7 +2,7 @@
   "name": "vsc-1c-local-check",
   "displayName": "VSC 1C Local check",
   "description": "",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "engines": {
     "vscode": "^1.103.0"
   },
